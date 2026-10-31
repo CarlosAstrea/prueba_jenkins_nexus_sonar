@@ -36,4 +36,18 @@ public final class Textos {
         String limpio = texto.replaceAll("\\s+", "").toLowerCase(Locale.ROOT);
         return new StringBuilder(limpio).reverse().toString().equals(limpio);
     }
+
+    /**
+     * Cuenta el número de palabras en un texto, ignorando espacios múltiples
+     * al inicio, al final o entre palabras.
+     *
+     * @param texto texto a evaluar; si es nulo o está en blanco devuelve {@code 0}
+     * @return cantidad de palabras en el texto
+     */
+    public static int contarPalabras(String texto) {
+        if (texto == null || texto.trim().isEmpty()) {
+            return 0;
+        }
+        return texto.trim().split("\\s+").length;
+    }
 }
