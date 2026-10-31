@@ -33,4 +33,21 @@ class TextosTest {
     void detectaQueNoEsPalindromo() {
         assertFalse(Textos.esPalindromo("hola"));
     }
+
+    @Test
+    void cuentaPalabrasEnOracionSimple() {
+        assertEquals(4, Textos.contarPalabras("Hola mundo desde Java"));
+    }
+
+    @Test
+    void cuentaPalabrasIgnorandoEspaciosMultiplesYSaltosDeLinea() {
+        assertEquals(3, Textos.contarPalabras("   uno   dos \n tres  "));
+    }
+
+    @Test
+    void contarPalabrasDevuelveCeroCuandoEsNuloOEnBlanco() {
+        assertEquals(0, Textos.contarPalabras(null));
+        assertEquals(0, Textos.contarPalabras(""));
+        assertEquals(0, Textos.contarPalabras("   "));
+    }
 }
